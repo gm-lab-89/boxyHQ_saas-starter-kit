@@ -30,7 +30,7 @@ const EventTypes = ({
           className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500"
           defaultChecked={values ? values.includes(eventType) : false}
         />
-        <label className="ml-2 text-sm text-gray-900">{eventType}</label>
+        <label className="ml-2 text-sm text-neutral">{eventType}</label>
       </div>
     );
   });

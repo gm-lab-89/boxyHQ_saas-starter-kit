@@ -14,23 +14,23 @@ export const applyTheme = (theme: Theme) => {
   switch (theme) {
     case 'dark':
       document.documentElement.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'black');
+      document.documentElement.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
       break;
     case 'light':
       document.documentElement.classList.remove('dark');
-      document.documentElement.setAttribute('data-theme', 'corporate');
+      document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
       break;
     case 'system':
     default:
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
-        document.documentElement.setAttribute('data-theme', 'black');
+        document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.removeItem('theme');
       } else {
         document.documentElement.classList.remove('dark');
-        document.documentElement.setAttribute('data-theme', 'corporate');
+        document.documentElement.setAttribute('data-theme', 'light');
         localStorage.removeItem('theme');
       }
       break;

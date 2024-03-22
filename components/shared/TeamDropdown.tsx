@@ -88,7 +88,7 @@ const TeamDropdown = () => {
             <React.Fragment key={id}>
               {name && (
                 <li
-                  className="text-xs text-gray-500 py-1 px-2"
+                  className="text-xs text-neutral py-1 px-2"
                   key={`${id}-name`}
                 >
                   {name}

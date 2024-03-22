@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 
 const trClass =
   'border-b bg-white last:border-b-0 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800';
-const tdClassBase = 'px-6 py-3 text-sm text-gray-500 dark:text-gray-400';
+const tdClassBase = 'px-6 py-3 text-sm text-neutral dark:text-gray-400';
 const tdClass = `whitespace-nowrap ${tdClassBase}`;
 const tdClassWrap = `break-all ${tdClassBase}`;
 
@@ -51,7 +51,7 @@ export const TableBody = ({
         <tr>
           <td
             colSpan={cols.length}
-            className="px-6 py-3 text-center text-sm text-gray-500"
+            className="px-6 py-3 text-center text-sm text-neutral"
           >
             {t('no-more-results')}
           </td>

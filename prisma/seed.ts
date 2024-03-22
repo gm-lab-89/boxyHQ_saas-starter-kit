@@ -10,6 +10,7 @@ const ADMIN_EMAIL = 'admin@example.com';
 const ADMIN_PASSWORD = 'admin@123';
 const USER_EMAIL = 'user@example.com';
 const USER_PASSWORD = 'user@123';
+
 async function seedUsers() {
   const newUsers: any[] = [];
   await createRandomUser(ADMIN_EMAIL, ADMIN_PASSWORD);

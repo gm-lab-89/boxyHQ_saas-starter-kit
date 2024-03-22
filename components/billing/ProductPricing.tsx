@@ -60,7 +60,7 @@ const ProductPricing = ({ plans, subscriptions }: ProductPricingProps) => {
                     {plan.name}
                   </h3>
                 </div>
-                <p className="mt-2 text-gray-500 h-10">{plan.description}</p>
+                <p className="mt-2 text-neutral h-10">{plan.description}</p>
               </div>
               <div className="flex justify-center flex-col gap-2 border-b border-t border-gray-200 bg-gray-50 px-8 py-5 h-32">
                 {plan.prices.map((price: Price) =>

@@ -73,7 +73,7 @@ const Form = ({
               <label className="label">
                 <span className="label-text">{t('events-to-send')}</span>
               </label>
-              <p className="ml-1 mb-3 text-sm font-normal text-gray-500">
+              <p className="ml-1 mb-3 text-sm font-normal text-neutral">
                 {t('events-description')}
               </p>
               <div className="grid grid-cols-2 gap-2">

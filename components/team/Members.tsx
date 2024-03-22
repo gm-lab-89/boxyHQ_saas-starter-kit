@@ -89,7 +89,7 @@ const Members = ({ team }: { team: Team }) => {
           <h2 className="text-xl font-medium leading-none tracking-tight">
             {t('members')}
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-neutral dark:text-gray-400">
             {t('members-description')}
           </p>
         </div>

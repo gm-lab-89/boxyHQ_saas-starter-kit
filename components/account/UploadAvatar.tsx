@@ -132,7 +132,7 @@ const UploadAvatar = ({ user }: { user: Partial<User> }) => {
                 <ArrowUpCircleIcon
                   className={`${
                     dragActive ? 'scale-110' : 'scale-100'
-                  } h-50 w-50 text-gray-500 transition-all duration-75 group-hover:scale-110 group-active:scale-95`}
+                  } h-50 w-50 text-neutral transition-all duration-75 group-hover:scale-110 group-active:scale-95`}
                 />
               </div>
               {image && (

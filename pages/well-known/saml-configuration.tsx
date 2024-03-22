@@ -57,7 +57,7 @@ const SPConfig: NextPageWithLayout<
             </div>
             <div className="form-control w-full">
               <div className="flex flex-col">
-                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label className="mb-2 block text-sm font-medium text-neutral dark:text-gray-300">
                   {t('response')}
                 </label>
                 <p className="text-sm">{config.response}</p>
@@ -65,7 +65,7 @@ const SPConfig: NextPageWithLayout<
             </div>
             <div className="form-control w-full">
               <div className="flex flex-col">
-                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label className="mb-2 block text-sm font-medium text-neutral dark:text-gray-300">
                   {t('assertion-signature')}
                 </label>
                 <p className="text-sm">{config.assertionSignature}</p>
@@ -73,7 +73,7 @@ const SPConfig: NextPageWithLayout<
             </div>
             <div className="form-control w-full">
               <div className="flex flex-col">
-                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label className="mb-2 block text-sm font-medium text-neutral dark:text-gray-300">
                   {t('signature-algorithm')}
                 </label>
                 <p className="text-sm">{config.signatureAlgorithm}</p>
@@ -81,7 +81,7 @@ const SPConfig: NextPageWithLayout<
             </div>
             <div className="form-control w-full">
               <div className="flex flex-col">
-                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label className="mb-2 block text-sm font-medium text-neutral dark:text-gray-300">
                   {t('assertion-encryption')}
                 </label>
                 <p className="text-sm">
