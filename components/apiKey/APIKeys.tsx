@@ -24,7 +24,9 @@ const APIKeys = ({ team }: APIKeysProps) => {
 
   // Delete API Key
   const deleteApiKey = async (apiKey: ApiKey | null) => {
-    if (!apiKey) return;
+    if (!apiKey) {
+      return;
+    }
 
     const response = await fetch(
       `/api/teams/${team.slug}/api-keys/${apiKey.id}`,
@@ -71,7 +73,7 @@ const APIKeys = ({ team }: APIKeysProps) => {
         {apiKeys.length === 0 ? (
           <EmptyState
             title={t('no-api-key-title')}
-            description={t('no-api-key-description')}
+            description={t('api-key-description')}
           />
         ) : (
           <>

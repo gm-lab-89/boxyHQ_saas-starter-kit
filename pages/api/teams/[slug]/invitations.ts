@@ -16,8 +16,9 @@ import { throwIfNotAllowed } from 'models/user';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { recordMetric } from '@/lib/metrics';
 import { extractEmailDomain, isEmailAllowed } from '@/lib/email/utils';
-import { Invitation } from '@prisma/client';
+import { Invitation, Role } from '@prisma/client';
 import { countTeamMembers } from 'models/teamMember';
+import { inviteViaEmailSchema, validateWithSchema } from '@/lib/zod';
 
 export default async function handler(
   req: NextApiRequest,
@@ -58,7 +59,15 @@ const handlePOST = async (req: NextApiRequest, res: NextApiResponse) => {
   const teamMember = await throwIfNoTeamAccess(req, res);
   throwIfNotAllowed(teamMember, 'team_invitation', 'create');
 
-  const { email, role, sentViaEmail, domains } = req.body;
+  const { email, role, sentViaEmail, domains } = validateWithSchema(
+    inviteViaEmailSchema,
+    req.body
+  ) as {
+    email?: string;
+    role: Role;
+    sentViaEmail: boolean;
+    domains?: string;
+  };
 
   let invitation: undefined | Invitation = undefined;
 
@@ -248,13 +257,11 @@ const handlePUT = async (req: NextApiRequest, res: NextApiResponse) => {
   const email = session?.user.email as string;
 
   // Make sure the user is logged in with the invited email address (Join via email)
-  if (invitation.sentViaEmail) {
-    if (invitation.email !== email) {
-      throw new ApiError(
-        400,
-        'You must be logged in with the email address you were invited with.'
-      );
-    }
+  if (invitation.sentViaEmail && invitation.email !== email) {
+    throw new ApiError(
+      400,
+      'You must be logged in with the email address you were invited with.'
+    );
   }
 
   // Make sure the user is logged in with an allowed domain (Join via link)
