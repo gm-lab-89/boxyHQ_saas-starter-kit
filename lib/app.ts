@@ -3,7 +3,7 @@ import packageInfo from '../package.json';
 const app = {
   version: packageInfo.version,
   name: '',
-  logoUrl: 'https://boxyhq.com/img/logo.png',
+  logoUrl: '/logo.svg',
   url: 'http://localhost:4002',
 };
 

@@ -9,6 +9,8 @@ import mixpanel from 'mixpanel-browser';
 
 import '@boxyhq/react-ui/dist/style.css';
 import '../styles/globals.css';
+import 'gridstack/dist/gridstack.min.css';
+
 import { useEffect } from 'react';
 import env from '@/lib/env';
 import { Theme, applyTheme } from '@/lib/theme';
