@@ -28,6 +28,16 @@ export const createTeam = async (param: {
   return team;
 };
 
+export const getByCustomerId = async (
+  billingId: string
+): Promise<Team | null> => {
+  return await prisma.team.findFirst({
+    where: {
+      billingId,
+    },
+  });
+};
+
 export const getTeam = async (key: { id: string } | { slug: string }) => {
   return await prisma.team.findUniqueOrThrow({
     where: key,
@@ -318,10 +328,9 @@ export const throwIfNoTeamAccess = async (
     throw new Error('Unauthorized');
   }
 
-  const teamMember = await getTeamMember(
-    session.user.id,
-    req.query.slug as string
-  );
+  const { slug } = validateWithSchema(teamSlugSchema, req.query);
+
+  const teamMember = await getTeamMember(session.user.id, slug);
 
   if (!teamMember) {
     throw new Error('You do not have access to this team');

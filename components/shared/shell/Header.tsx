@@ -43,7 +43,7 @@ const Header = ({ setSidebarOpen }: HeaderProps) => {
     <div className="sticky top-0 z-40 flex h-14 shrink-0 items-center border-b px-4 sm:gap-x-6 sm:px-6 lg:px-8 bg-white dark:bg-black">
       <button
         type="button"
-        className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+        className="-m-2.5 p-2.5 text-gray-700 dark:text-gray-50 lg:hidden"
         onClick={() => setSidebarOpen(true)}
       >
         <span className="sr-only">{t('open-sidebar')}</span>
