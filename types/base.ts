@@ -63,7 +63,8 @@ export type AUTH_PROVIDER =
   | 'saml'
   | 'email'
   | 'credentials'
-  | 'idp-initiated';
+  | 'idp-initiated'
+  | 'keycloak';
 
 export interface TeamFeature {
   sso: boolean;

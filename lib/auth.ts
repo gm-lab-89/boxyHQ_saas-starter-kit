@@ -26,5 +26,6 @@ export function authProviderEnabled() {
     email: isAuthProviderEnabled('email'),
     saml: isAuthProviderEnabled('saml'),
     credentials: isAuthProviderEnabled('credentials'),
+    keycloak: isAuthProviderEnabled('keycloak')
   };
 }

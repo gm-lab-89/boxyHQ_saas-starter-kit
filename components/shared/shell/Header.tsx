@@ -17,6 +17,17 @@ interface HeaderProps {
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+async function keycloakSessionLogout() {
+  try 
+  {
+    await fetch('api/auth/logout', {method: 'GET'});
+
+  } catch(error)
+  {
+    console.error(error);
+  }
+}
+
 const Header = ({ setSidebarOpen }: HeaderProps) => {
   const { toggleTheme } = useTheme();
   const { status, data } = useSession();
@@ -95,7 +106,7 @@ const Header = ({ setSidebarOpen }: HeaderProps) => {
                 <button
                   className="block px-2 py-1 text-sm leading-6 text-neutral cursor-pointer"
                   type="button"
-                  onClick={() => signOut()}
+                  onClick={() => keycloakSessionLogout().then(()=> signOut())}
                 >
                   <div className="flex items-center">
                     <ArrowRightOnRectangleIcon className="w-5 h-5 mr-1" />{' '}

@@ -17,11 +17,12 @@ const Navigation = () => {
   }, [asPath, isReady]);
 
   const Navigation = () => {
-    if (slug) {
+    if (slug && activePathname && activePathname?.indexOf("teams") > 0) {
       return <TeamNavigation activePathname={activePathname} slug={slug} />;
-    } else {
-      return <UserNavigation activePathname={activePathname} />;
-    }
+    } 
+   
+    return <UserNavigation activePathname={activePathname} />;
+   
   };
 
   return (

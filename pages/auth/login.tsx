@@ -19,6 +19,7 @@ import type { NextPageWithLayout } from 'types';
 import { AuthLayout } from '@/components/layouts';
 import GithubButton from '@/components/auth/GithubButton';
 import GoogleButton from '@/components/auth/GoogleButton';
+import KeycloakButton from '@/components/auth/KeycloakButton';
 import { Alert, InputWithLabel, Loading } from '@/components/shared';
 import { authProviderEnabled } from '@/lib/auth';
 import Head from 'next/head';
@@ -125,6 +126,7 @@ const Login: NextPageWithLayout<
         <div className="flex gap-2 flex-wrap">
           {authProviders.github && <GithubButton />}
           {authProviders.google && <GoogleButton />}
+          {authProviders.keycloak && <KeycloakButton />}
         </div>
 
         {(authProviders.github || authProviders.google) &&

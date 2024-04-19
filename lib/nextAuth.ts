@@ -9,6 +9,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import EmailProvider from 'next-auth/providers/email';
 import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
+import KeycloakProvider from "next-auth/providers/keycloak";
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import type { Provider } from 'next-auth/providers';
 import { setCookie, getCookie } from 'cookies-next';
@@ -140,6 +141,7 @@ if (isAuthProviderEnabled('saml')) {
     })
   );
 }
+
 if (isAuthProviderEnabled('idp-initiated')) {
   providers.push(
     CredentialsProvider({
@@ -233,6 +235,17 @@ if (isAuthProviderEnabled('email')) {
     })
   );
 }
+
+if (isAuthProviderEnabled('keycloak')) {
+  providers.push(
+    KeycloakProvider({
+      clientId: env.keycloak.clientId,
+      clientSecret: env.keycloak.clientSecret,
+      issuer: env.keycloak.issuer
+    })
+  )
+}
+
 
 async function createDatabaseSession(
   user,

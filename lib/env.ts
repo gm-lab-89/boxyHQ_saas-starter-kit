@@ -19,6 +19,7 @@ const env = {
     secret: process.env.NEXTAUTH_SECRET,
     sessionStrategy: (process.env.NEXTAUTH_SESSION_STRATEGY ||
       'jwt') as SessionStrategy,
+    AuthUrl: process.env.NEXTAUTH_URL as string,
   },
 
   // Svix
@@ -37,6 +38,13 @@ const env = {
   google: {
     clientId: `${process.env.GOOGLE_CLIENT_ID}`,
     clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
+  },
+
+  //Provider login: keycloak
+  keycloak: {
+    clientId: `${process.env.KEYCLOACK_CLIENT_ID}`,
+    clientSecret: `${process.env.KEYCLOACK_CLIENT_SECRET}`,
+    issuer: `${process.env.KEYCLOAK_ISSUER}`
   },
 
   // Retraced configuration
