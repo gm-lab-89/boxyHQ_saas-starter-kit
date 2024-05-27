@@ -1,6 +1,7 @@
 import { eventTypes } from '@/lib/common';
 import React, { ReactElement } from 'react';
 import type { WebookFormSchema } from 'types';
+import { Checkbox } from '../shared';
 
 const EventTypes = ({
   onChange,
